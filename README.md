@@ -37,7 +37,7 @@ $ aerich init-db # inside the container
 5. Create superuser
 
 ```bash
-$ ./bin/createsuperuser
+$ ./bin/createsuperuser  # inside the container
 ```
 
 6. Logging
@@ -65,7 +65,7 @@ aerich migrate # inside the container
 
 2. Apply migrations
 ```bash
-aerich upgrade
+aerich upgrade  # inside the container
 ```
 
 ## TODO:
