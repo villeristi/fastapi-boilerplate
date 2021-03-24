@@ -5,7 +5,7 @@ from src.config import settings
 
 console = logging.StreamHandler(stream=sys.stdout)
 console.setFormatter(
-    logging.Formatter("[{asctime} {levelname}/{name} - {filename} line {lineno}] {message}", style="{")
+    logging.Formatter("{levelname}/{name} [{filename}:{lineno}]: {message}", style="{")
 )
 
 logger = logging.getLogger("application")
