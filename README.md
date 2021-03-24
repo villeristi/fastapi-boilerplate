@@ -4,6 +4,7 @@ Dockerized [FastAPI](https://fastapi.tiangolo.com/) boilerplate for a quick envi
 
 Build with:
 
+* [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/) (for local development)
 * [Tortoise-ORM](https://tortoise-orm.readthedocs.io/en/latest/index.html) with [PostgreSQL](https://www.postgresql.org/)
 * Migrations by [aerich](https://github.com/tortoise/aerich)
 * User management by [FastAPI-users](https://frankie567.github.io/fastapi-users/)
