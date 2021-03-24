@@ -26,13 +26,16 @@ async def createsuperuser(
     password: str = typer.Option(..., prompt=True, confirmation_prompt=True, hide_input=True)
 ):
     await Tortoise.init(TORTOISE_ORM)
-    await accounts.create_user(
+
+    superuser = await accounts.create_user(
         user=UserCreate(
             email=email,
             password=password,
             is_superuser=True,
         )
     )
+
+    await accounts.verify_user(superuser)
 
     return typer.echo(f"Created superuser {email}!")
 
