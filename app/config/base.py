@@ -12,5 +12,6 @@ class BaseSettings(PydanticBaseSettings):
 
     model_directories: List[str] = [
         "app.accounts.models",
+        "app.items.models",
         "aerich.models"
     ]

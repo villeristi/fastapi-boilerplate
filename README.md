@@ -47,6 +47,12 @@ $ aerich init-db # inside the container
 $ ./bin/createsuperuser  # inside the container
 ```
 
+**(6.5 Optional: Generate fake data)**
+
+```bash
+$ ./bin/fakedata  # inside the container
+```
+
 **7. Logging**
 
 Default logging is configured in `src/util/logger.py` and logs everything to `stdout`. To actually see what's going on in your application, just grab the logs from the container using

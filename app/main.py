@@ -4,6 +4,7 @@ from .config import settings
 from .config.db import init_db
 
 from app import accounts
+from app import items
 
 from app.util.logger import logger
 
@@ -22,6 +23,7 @@ app.include_router(accounts.authresetpasswordrouter, prefix="/auth", tags=["Auth
 app.include_router(accounts.usersrouter, prefix="/accounts", tags=["Accounts"])
 app.include_router(accounts.registerrouter, prefix="/accounts", tags=["Accounts"])
 
+app.include_router(items.router, prefix="/items", tags=["Items"])
 
 # Hooks for startup
 @app.on_event("startup")
