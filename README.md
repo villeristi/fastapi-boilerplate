@@ -11,36 +11,43 @@ Build with:
 
 ## Getting started
 
-1. Clone the repo
+**1. Clone the repo**
 
 ```bash
 $ git clone git@github.com:villeristi/fastapi-boilerplate.git
 ```
 
-2. Start the containers
+**2. Create the `.env`-file**
+
+```bash
+$ cp .env.example .env
+```
+
+**3. Start the containers**
+
 ```bash
 $ docker-compose up -d
 ```
 
-3. Get to tha ~~choppa~~ container
+**4. Get to tha ~~choppa~~ container**
 
 ```bash
 $ docker exec -it fabp_app
 ```
 
-4. Initialize base DB-schema
+**5. Initialize base DB-schema**
 
 ```bash
 $ aerich init-db # inside the container
 ```
 
-5. Create superuser
+**6. Create superuser**
 
 ```bash
 $ ./bin/createsuperuser  # inside the container
 ```
 
-6. Logging
+**7. Logging**
 
 Default logging is configured in `src/util/logger.py` and logs everything to `stdout`. To actually see what's going on in your application, just grab the logs from the container using
 
@@ -50,10 +57,9 @@ $ docker logs fabp_app -f
 
 Uvicorn is watching the `src` directory by default and reloads application accordingly.
 
-7. Done!
+**8. Done!**
 
 Now everything's set up and one can start building something useful!
-
 
 
 ## Migrations
