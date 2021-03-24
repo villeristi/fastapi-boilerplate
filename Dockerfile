@@ -1,5 +1,8 @@
-FROM tiangolo/uvicorn-gunicorn:python3.8
+FROM python:3.8-slim
 
+LABEL maintainer="Wille <villeristimaki@gmail.com>"
+
+ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED 1
 
 RUN addgroup --system fastapi \
@@ -11,8 +14,10 @@ RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r /requirements/base.txt \
     && rm -rf /requirements
 
-COPY --chown=fastapi:fastapi ./src /app/src
+COPY --chown=fastapi:fastapi src /app
 
 USER fastapi
 
 WORKDIR /app
+
+EXPOSE 80

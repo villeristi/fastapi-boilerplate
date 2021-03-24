@@ -12,6 +12,11 @@ services:
     volumes:
       - $PWD/container-data/pgdata:/var/lib/postgresql/data
     container_name: fabp_db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fabp"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   app:
     build:
@@ -20,10 +25,11 @@ services:
     image: fabp/app
     container_name: fabp_app
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     volumes:
-      - ./src/:/app/src
-      - ./bin/:/app/bin
+      - .:/app/
+      - container-data/:/app/container-data
     env_file:
       - ./.env
     ports:
@@ -32,6 +38,7 @@ services:
     command: bash -c "uvicorn src.app:app --host=0.0.0.0 --port=8080 --log-level=debug --reload --reload-dir=./src --use-colors"
 
 volumes:
+  container-data:
   pgdata:
     driver: local
 
