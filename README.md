@@ -81,6 +81,7 @@ aerich upgrade  # inside the container
 ```
 
 ## TODO:
-- [ ] Fake data
+- [x] Fake data
+- [x] Sample CRUD-applicaiton (Items)
 - [ ] Testing
 - [ ] Production
