@@ -3,9 +3,9 @@ from fastapi import FastAPI
 from .config import settings
 from .config.db import init_db
 
-from .accounts import router as accountsrouter
+from app import accounts
 
-from .util.logger import logger
+from app.util.logger import logger
 
 app = FastAPI(
     title=settings.app_name,
@@ -16,11 +16,11 @@ app = FastAPI(
     openapi_url=settings.openapi_url,
 )
 
-app.include_router(accountsrouter.authrouter, prefix="/auth", tags=["Auth"])
-app.include_router(accountsrouter.authresetpasswordrouter, prefix="/auth", tags=["Auth"])
+app.include_router(accounts.authrouter, prefix="/auth", tags=["Auth"])
+app.include_router(accounts.authresetpasswordrouter, prefix="/auth", tags=["Auth"])
 
-app.include_router(accountsrouter.usersrouter, prefix="/accounts", tags=["Accounts"])
-app.include_router(accountsrouter.registerrouter, prefix="/accounts", tags=["Accounts"])
+app.include_router(accounts.usersrouter, prefix="/accounts", tags=["Accounts"])
+app.include_router(accounts.registerrouter, prefix="/accounts", tags=["Accounts"])
 
 
 # Hooks for startup

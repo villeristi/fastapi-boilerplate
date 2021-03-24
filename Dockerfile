@@ -14,7 +14,7 @@ RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r /requirements/base.txt \
     && rm -rf /requirements
 
-COPY --chown=fastapi:fastapi src /app
+COPY --chown=fastapi:fastapi app /app
 
 USER fastapi
 

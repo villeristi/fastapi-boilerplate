@@ -1,7 +1,7 @@
 import sys
 import logging
 
-from src.config import settings
+from app.config import settings
 
 console = logging.StreamHandler(stream=sys.stdout)
 console.setFormatter(

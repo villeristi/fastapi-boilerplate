@@ -6,9 +6,9 @@ from functools import wraps
 
 from tortoise import Tortoise
 
-from src.config.db import TORTOISE_ORM
-from src.accounts.router import accounts
-from src.accounts.models import UserCreate
+from app.config.db import TORTOISE_ORM
+from app.accounts.router import accounts
+from app.accounts.models import UserCreate
 
 
 # @see https://github.com/pallets/click/issues/85#issuecomment-503464628

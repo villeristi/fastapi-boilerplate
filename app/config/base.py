@@ -11,6 +11,6 @@ class BaseSettings(PydanticBaseSettings):
     db_url: PostgresDsn
 
     model_directories: List[str] = [
-        "src.accounts.models",
+        "app.accounts.models",
         "aerich.models"
     ]
